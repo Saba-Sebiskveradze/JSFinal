@@ -32,7 +32,7 @@ async function searchMovie(name = ''){
         )
         let data = await response.json();
         list.textContent = "";
-
+        favourite.textContent = `Search ${movieSearchForm.search.value} ...`;
         data.results.forEach(movieData => {
             renderMovieCard(movieData)
         })
@@ -44,6 +44,7 @@ getPopularMovies();
 let movieCardTemplate = document.querySelector('#movie_card')
 let list = document.querySelector('.list');
 let movieSearchForm = document.querySelector('#search')
+let favourite = document.querySelector('.favourite')
 
 movieSearchForm.search.addEventListener('input', debaunce(1000, () =>{
     let movieName = movieSearchForm.search.value;
@@ -52,6 +53,8 @@ movieSearchForm.search.addEventListener('input', debaunce(1000, () =>{
 
     }else{
         getPopularMovies()
+        favourite.textContent = "Popular this week";
+
     }
 }))
 
