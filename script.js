@@ -3,12 +3,12 @@
 // search https://api.themoviedb.org/3/search/movie
 
 let imageURL =  'https://image.tmdb.org/t/p/original'
-
 let token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZTliZTYwMDQwOTZiYjFmODJhNjAxNWE5ZTE0YmU4YyIsInN1YiI6IjY1YWJkOWIwMWYzZTYwMDBhNWZlYjAwMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.amnc8FjVlbX949GLcoTmuaC1NZ7HbhEvn8dRm0V-c34'
 let headers = {
     'Authorization': `Bearer ${token}` ,   
     'accept': 'application/json'    
 }
+
 async function getPopularMovies() {
     let response = await fetch(
     'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
@@ -37,7 +37,8 @@ async function searchMovie(name = ''){
             renderMovieCard(movieData)
         })
 }
-getPopularMovies();
+
+
 
 
 getPopularMovies();
@@ -76,3 +77,5 @@ function debaunce(delay, callback){
         }, delay)
     }
 }
+
+
